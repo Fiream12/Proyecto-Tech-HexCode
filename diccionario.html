@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Glosario técnico de energías renovables y transición energética - Futuro Solar">
+    <title>Diccionario Energético - Futuro Solar</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+    <!-- Modern Navigation -->
+    <nav class="navbar navbar-expand-lg border-bottom sticky-top custom-navbar">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-white" href="index.html">
+                Futuro <span class="text-primary-green">Solar</span>
+            </a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link " href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link " href="datos-energia.html">Datos de Energía</a></li>
+                    <li class="nav-item"><a class="nav-link " href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link " href="calculadora.html">Calculadora</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="diccionario.html">Glosario</a></li>
+                    <li class="nav-item"><a class="nav-link " href="acerca-del-proyecto.html">Acerca del Proyecto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header text-center animate__animated animate__fadeIn">
+        <div class="container">
+            <span class="badge bg-primary-soft text-primary px-3 py-2 rounded-pill mb-3 border border-success">Herramienta Didáctica</span>
+            <h1 class="display-6 fw-bold mb-2 text-white">Glosario <span class="text-primary-green">Técnico</span></h1>
+            <p class="text-muted mx-auto" style="max-width: 700px;">Comprende el lenguaje de la sostenibilidad. Nuestra base de conocimientos abierta aclara los términos técnicos para ayudarte a entender mejor el impacto ambiental, métricas y la tecnología subyacente de la transición verde.</p>
+        </div>
+    </header>
+
+    <main class="container my-5 pb-4">
+        
+        <!-- Filter Bar (Simulated functionality for UI completeness) -->
+        <div class="row mb-5 animate__animated animate__fadeInUp">
+            <div class="col-lg-6 mx-auto">
+                <div class="input-group input-group-lg border border-secondary rounded overflow-hidden shadow-sm" style="border-color: var(--glass-border) !important;">
+                    <span class="input-group-text bg-dark-deep border-0 text-muted"><i class="bi bi-search"></i></span>
+                    <input type="text" class="form-control bg-dark-deep border-0 text-white shadow-none" placeholder="Explorar biblioteca de términos... (ej. TWh, Biomasa)" aria-label="Buscar" readonly>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 dictionary-cards">
+            
+            <!-- Unidades Básicas -->
+            <!-- Terminal: TWh -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-primary-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-lightning-charge text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">TWh (Teravatio-hora)</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Unidad</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Medida masiva de energía eléctrica. Un TWh equivale a mil millones de kWh y sirve principalmente para medir el enorme consumo y producción energética en la escala geográfica de países enteros y macroeconomías.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: kWh -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-1s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-success-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-plug text-success fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">kWh (Kilovatio-hora)</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Unidad</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Es el estándar de la industria para facturar y medir la electricidad residencial o a nivel micro. Equivale a 1,000 Vatios de potencia que están siendo inyectados constantemente o consumidos a lo largo de una hora entera.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Vatios y Voltios -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-2s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-warning-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-battery-charging text-warning fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Vatio (W) & Voltio (V)</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Eléctrico</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Un <strong class="text-primary-green">Vatio (W)</strong> mide la "potencia", es decir a qué velocidad se consume o transfiere la energía. Un <strong class="text-primary-green">Voltio (V)</strong> mide la "tensión" o presión electromotriz con la que los electrones son empujados por un cable conductor.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fuentes de Energía Renovable -->
+            <!-- Terminal: Solar -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-warning-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-sun text-warning fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Energía Solar</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Renovable</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Aquella adquirida al capturar la enorme radiación electromagnética procedente del sol a través de un panel fotovoltaico (luz directa transformable a electricidad celular) o recolectores térmicos (calor concentrado).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Eolica -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-1s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-info-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-wind text-info fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Energía Eólica</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Renovable</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Aprovechamiento de la energía cinética del viento a través de extensas palas conectadas a rotores giratorios en un generador, las cuales giran por la fuerza de las corrientes de aire impulsando una dinamo masiva.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Hidrica -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-2s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-primary-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-droplet text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Hidroeléctrica</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Renovable Base</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Obtención de energía eléctrica al aprovechar el paso regulado, la vertiginosa gravedad o movimiento natural de flujos de agua para desplazar e impulsar de manera eficiente gigantescas turbinas interconectadas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Biomasa -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-success-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-tree text-success fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Biomasa</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Biocombustible</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Utilización de materia orgánica, en su mayoría residuos agrícolas, forestales, o animales, que en vez de descomponerse inútilmente, reaccionan por su potencial químico al ser quemados de forma controlada para liberar calor o gas procesable.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conceptos Ambientales -->
+            <!-- Terminal: Huella Carbono -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-1s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-secondary-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-fingerprint text-muted fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Huella de Carbono</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Métrica</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Estimación cuantitativa total de la cantidad y peso del impacto provocado por una persona u organización en la biosfera, debido a los gases de efecto invernadero (mencionado habitualmente como CO₂) liberados directa y colateralmente.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Transicion -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-2s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-primary-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-arrow-repeat text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Transición Energética</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Estrategia</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Transformación infraestructural masiva para alejar a un país de una política energética basada enormemente y puramente en la quema de combustibles fósiles (carbón, diésel, gas) por un modelo ecológico global o 100% de emisión cero.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tecnologías y Componentes -->
+            <!-- Terminal: Panel Fotovoltaico -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-warning-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-cpu text-warning fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Panel Fotovoltaico</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Tecnología</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Dispositivo semiconductor que convierte directamente la luz solar en electricidad mediante el efecto fotovoltaico. Los paneles modernos tienen eficiencias del 15-22% y vidas útiles de 25-30 años.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Inversor Solar -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-1s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-info-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-arrow-left-right text-info fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Inversor Solar</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Componente</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Equipo electrónico que convierte la corriente continua (DC) generada por los paneles solares en corriente alterna (AC) compatible con la red eléctrica doméstica. Eficiencias típicas del 95-98%.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Bateria Ion-Litio -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-2s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-success-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-battery-charging text-success fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Batería de Ion-Litio</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Almacenamiento</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Sistema de almacenamiento energético con alta densidad energética y ciclos de vida de 2,000-6,000 cargas. Esencial para sistemas solares off-grid y almacenamiento de energía excedente.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Microinversor -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-primary-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-gear text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Microinversor</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Componente</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Inversor pequeño conectado directamente a uno o dos paneles solares. Optimiza la producción individualmente y permite monitoreo a nivel de panel, mejorando la eficiencia del sistema en condiciones de sombreado parcial.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Controlador de Carga -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-1s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-warning-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-speedometer2 text-warning fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Controlador de Carga</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Componente</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Dispositivo que regula el flujo de energía desde los paneles solares hacia las baterías, previniendo sobrecargas y maximizando la vida útil de las baterías mediante algoritmos de carga inteligente.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Sistema Grid-Tie -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-2s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-info-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-plug text-info fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Sistema Grid-Tie</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Configuración</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Instalación solar conectada a la red eléctrica pública. Permite verter el excedente de energía a la compañía eléctrica y consumir de la red cuando la producción solar es insuficiente.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Sistema Off-Grid -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-success-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-house text-success fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Sistema Off-Grid</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Configuración</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Instalación solar autónoma sin conexión a la red eléctrica. Requiere baterías para almacenamiento energético y generador de respaldo para garantizar suministro continuo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conceptos Ambientales Avanzados -->
+            <!-- Terminal: Neutralidad Carbono -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-primary-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-balance-scale text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Neutralidad de Carbono</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Ambiental</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Estado en el que las emisiones de CO2 de una organización están balanceadas por la eliminación o reducción equivalente de dichas emisiones, logrando un balance neto cero de gases de efecto invernadero.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Creditos Carbono -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-1s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-warning-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-currency-dollar text-warning fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Créditos de Carbono</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Financiero</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Permisos negociables que representan el derecho a emitir una tonelada de CO2. Empresas pueden comprar créditos para compensar sus emisiones, financiando proyectos de reducción en otros lugares.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Secuestro Carbono -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-2s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-info-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-cloud-download text-info fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Secuestro de Carbono</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Tecnología</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Proceso de captura y almacenamiento a largo plazo de CO2 de la atmósfera. Métodos incluyen reforestación, captura geológica, y almacenamiento oceánico, con capacidades de millones de toneladas anuales.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Economia Circular -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-success-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-arrow-repeat text-success fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Economía Circular</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Concepto</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Modelo económico que elimina el concepto de residuo mediante el diseño de productos para su reutilización, reparación y reciclaje continuo, minimizando el consumo de recursos y la generación de desechos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Pico Petrolero -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-1s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-secondary-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-graph-down text-muted fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Pico Petrolero</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Concepto</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Momento en que la producción mundial de petróleo alcanza su máximo histórico para luego declinar irreversiblemente, marcando el fin de la era del petróleo barato y acelerando la transición energética.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Métricas y Unidades Financieras -->
+            <!-- Terminal: MWp -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-2s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-warning-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-lightning-charge text-warning fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">MWp (Megavatio Pico)</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Unidad</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Potencia máxima que un sistema solar puede generar bajo condiciones ideales de irradiación solar (1000W/m², 25°C). Un sistema de 1MWp puede generar aproximadamente 1,400-1,600 MWh anuales.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Factor Capacidad -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-info-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-percent text-info fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Factor de Capacidad</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Métrica</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Relación entre la energía real producida y la máxima posible. Solar: 15-25%, Eólica: 30-45%, Hidroeléctrica: 40-90%. Indica la eficiencia y confiabilidad de cada tecnología energética.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: PPA -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-1s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-success-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-file-text text-success fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">PPA (Power Purchase Agreement)</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Financiero</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Contrato a largo plazo (10-25 años) para comprar energía eléctrica a un precio predeterminado. Garantiza ingresos estables para proyectos renovables y precios predecibles para compradores.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: LCOE -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-2s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-primary-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-calculator text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">LCOE (Levelized Cost)</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Financiero</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Costo nivelizado de energía: costo total de construcción y operación dividido por la energía total producida durante la vida útil. Solar: $20-40/MWh, Eólica: $25-50/MWh, Gas: $60-100/MWh.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: ROI -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-warning-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-graph-up-arrow text-warning fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">ROI (Return on Investment)</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Financiero</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Retorno sobre inversión: porcentaje de ganancia o pérdida sobre una inversión. Sistemas solares residenciales típicamente tienen ROI del 8-15% anual, con períodos de recuperación de 6-10 años.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Payback Period -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-1s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-info-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-calendar-check text-info fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Payback Period</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Financiero</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Tiempo necesario para recuperar la inversión inicial mediante los ahorros generados. Instalaciones solares residenciales: 6-10 años, comerciales: 4-7 años, industriales: 3-5 años con incentivos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Infraestructura y Redes -->
+            <!-- Terminal: Smart Grid -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-2s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-success-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-diagram-3 text-success fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Smart Grid</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Infraestructura</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Red eléctrica inteligente con sensores, automatización y comunicación bidireccional. Permite integración masiva de renovables, gestión de demanda, y respuesta automática a fluctuaciones de la red.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Microrred -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-primary-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-houses text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Microrred</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Infraestructura</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Red eléctrica local autónoma que puede operar conectada o desconectada de la red principal. Típicamente incluye generación renovable, almacenamiento y control avanzado para comunidades o instalaciones industriales.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Parque Eolico -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-1s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-info-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-wind text-info fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Parque Eólico</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Infraestructura</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Conjunto de aerogeneradores que operan como una sola planta eléctrica. Parques modernos tienen capacidades de 100-1000MW, con turbinas de 2-15MW cada una, generando suficiente energía para 50,000-300,000 hogares.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Central Solar Termica -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-2s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-warning-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-sun text-warning fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Central Solar Térmica</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Infraestructura</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Planta que concentra luz solar para generar calor y producir electricidad mediante turbinas de vapor. Sistemas de 50-500MW con almacenamiento térmico pueden operar 24/7, con eficiencias del 15-35%.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Electrolineras -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-success-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-ev-station text-success fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Electrolineras</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Infraestructura</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Estaciones de carga para vehículos eléctricos. Tipos: Nivel 1 (120V, 1.4kW), Nivel 2 (240V, 7-22kW), Nivel 3 (480V+, 50-350kW). Tiempos de carga: 8-40h (L1), 3-8h (L2), 15-30min (L3).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Energías Emergentes -->
+            <!-- Terminal: Geotermica -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-1s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-warning-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-geo text-warning fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Geotérmica</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Renovable</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Energía del calor interno terrestre. Plantas modernas inyectan agua a 2-3km de profundidad, extraen vapor a 150-350°C para generar electricidad. Factor de capacidad 90%+, operando 24/7.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Marina/Olamotriz -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-2s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-info-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-water text-info fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Marina/Olamotriz</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Renovable</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Energía de olas y mareas. Olas: convertidores de movimiento ondulatorio (1-2MW). Mareas: turbinas submarinas en corrientes de marea (1-2MW). Potencial global: 2TW olas, 1TW mareas, tecnologías en desarrollo comercial.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Biogas -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-success-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-droplet text-success fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Biogás</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Biocombustible</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Metano producido por descomposición anaeróbica de materia orgánica. Plantas de 1-10MW procesan 50-500 ton/día, generando electricidad y calor residual. Digestor: 30-60% metano, 40-70% CO2.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Hidrogeno Verde -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-1s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-primary-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-droplet text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Hidrógeno Verde</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Renovable</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Hidrógeno producido mediante electrólisis del agua usando energía renovable. Proceso: 2H2O → 2H2 + O2. Eficiencia 60-80%. Producción: 1kg H2 requiere 50-55kWh, equivalente a 15-20kg CO2 evitados.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Energia Cinetica -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-2s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-warning-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-arrow-left-right text-warning fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Energía Cinética</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Renovable</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Energía del movimiento. Aplicaciones: peatones (5-10W), vehículos (50-100kW), trens (1-5MW). Captura mediante generadores de reluctancia o piezoeléctricos, con eficiencias del 30-70%.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Termosolar -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-info-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-sun text-info fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Termosolar</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Renovable</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Concentración solar térmica. Espejos parabólicos o heliostatos concentran luz solar en receptor, alcanzando 400-1000°C. Usada para generación eléctrica (ciclo Brayton) o procesos industriales.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aplicaciones Residenciales -->
+            <!-- Terminal: Autoconsumo -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-success-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-house text-success fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Autoconsumo</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Aplicación</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Producción y consumo propios de energía renovable. Instalaciones residenciales: 3-10kWp. Ahorros típicos: 30-70% en factura eléctrica. Incentivos federales: 30% del costo, hasta $2,000/kW.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Net Metering -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-1s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-primary-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-arrow-left-right text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Net Metering</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Política</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Sistema de medición neta donde el excedente solar se verter a la red y se recibe crédito. Créditos típicos: $0.03-0.06/kWh. Permite facturación anual neta o cero para sistemas bien dimensionados.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Eficiencia Energetica -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-2s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-warning-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-speedometer2 text-warning fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Eficiencia Energética</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Concepto</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Relación entre energía útil y energía consumida. Mejoras en edificios: 30-50% ahorro. Electrodomésticos ENERGY STAR: 10-50% más eficientes. Iluminación LED: 75-80% menos consumo que incandescentes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Auditoria Energetica -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-info-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-clipboard-check text-info fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Auditoría Energética</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Servicio</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Evaluación sistemática del consumo energético. Incluye análisis de envolvente, HVAC, iluminación, equipos. Reporte detallado con recomendaciones priorizadas y análisis costo-beneficio de mejoras.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal: Certificacion LEED -->
+            <div class="col-md-6 col-lg-4 animate__animated animate__zoomIn animate__delay-1s">
+                <div class="card card-premium h-100 hover-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="widget-icon bg-success-soft me-3" style="width: 45px; height: 45px; min-width: 45px;">
+                                <i class="bi bi-award text-success fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-white">Certificación LEED</h5>
+                                <span class="badge border border-secondary text-muted bg-dark-deep">Estándar</span>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-0 small">Leadership in Energy and Environmental Design. Sistema de calificación 0-100 puntos para edificios sostenibles. Niveles: Certified (40+), Silver (50+), Gold (60+), Platinum (80+).</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Modern Footer -->
+    <footer class="footer-modern py-5 mt-5 border-top border-dark-subtle">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4">
+                    <h4 class="text-white fw-bold mb-3">Futuro <span class="text-primary-green">Solar</span></h4>
+                    <p class="text-muted small">Plataforma dedicada a la democratización de datos energéticos para un mañana sostenible en un entorno visual inmersivo.</p>
+                </div>
+                <div class="col-lg-2 offset-lg-1">
+                    <h6 class="text-white fw-bold mb-3">Secciones Rápidas</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="datos-energia.html">Datos de Energía</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="calculadora.html">Calculadora</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h6 class="text-white fw-bold mb-3">Conócenos</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="diccionario.html">Glosario</a></li>
+                        <li><a href="acerca-del-proyecto.html">Acerca del Proyecto</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="text-white fw-bold mb-3">Tecnología</h6>
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        <span class="badge bg-dark border border-secondary text-muted">Bootstrap 5.3</span>
+                        <span class="badge bg-dark border border-secondary text-muted">Chart.js</span>
+                    </div>
+                    <div class="social-icons d-flex gap-3">
+                        <a href="#" class="text-muted"><i class="bi bi-github fs-5"></i></a>
+                        <a href="#" class="text-muted"><i class="bi bi-linkedin fs-5"></i></a>
+                        <a href="#" class="text-muted"><i class="bi bi-twitter-x fs-5"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary opacity-25">
+            <div class="d-flex flex-wrap justify-content-between align-items-center py-3">
+                <p class="text-muted small mb-0">&copy; 2026 Futuro Solar. Proyecto educativo HexCode Team.</p>
+                <div class="text-muted small">
+                    <span class="badge bg-dark border border-secondary">v2.0 Dark</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Scroll Animations -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-up, .animate__zoomIn, .dictionary-cards .card').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

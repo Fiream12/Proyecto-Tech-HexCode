@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+
+  <!-- Fondo -->
+  <rect x="20" y="30" width="160" height="120" rx="10" fill="#f4f4f4" stroke="#ccc"/>
+
+  <!-- Encabezado -->
+  <rect x="20" y="30" width="160" height="30" fill="#2e7d32"/>
+
+  <!-- Líneas horizontales -->
+  <line x1="20" y1="60" x2="180" y2="60" stroke="#ccc"/>
+  <line x1="20" y1="85" x2="180" y2="85" stroke="#ccc"/>
+  <line x1="20" y1="110" x2="180" y2="110" stroke="#ccc"/>
+  <line x1="20" y1="135" x2="180" y2="135" stroke="#ccc"/>
+
+  <!-- Líneas verticales -->
+  <line x1="70" y1="30" x2="70" y2="150" stroke="#ccc"/>
+  <line x1="120" y1="30" x2="120" y2="150" stroke="#ccc"/>
+
+</svg>

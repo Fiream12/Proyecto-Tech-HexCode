@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculadoras Ambientales - Futuro Solar">
+    <title>Calculadoras Ambientales - Futuro Solar</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Recordatorio: Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+    <!-- Modern Navigation -->
+    <nav class="navbar navbar-expand-lg border-bottom sticky-top custom-navbar">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-white" href="index.html">
+                Futuro <span class="text-primary-green">Solar</span>
+            </a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="datos-energia.html">Datos de Energía</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="calculadora.html">Calculadora</a></li>
+                    <li class="nav-item"><a class="nav-link" href="diccionario.html">Glosario</a></li>
+                    <li class="nav-item"><a class="nav-link" href="acerca-del-proyecto.html">Acerca del Proyecto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header text-center animate__animated animate__fadeIn">
+        <div class="container">
+            <span class="badge bg-primary-soft text-primary px-3 py-2 rounded-pill mb-3 border border-success">Herramientas Analíticas</span>
+            <h1 class="display-6 fw-bold mb-2 text-white">Centro de <span class="text-primary-green">Cálculo Ambiental</span></h1>
+            <p class="text-muted mx-auto" style="max-width: 700px;">Mide tu huella ecológica actual, descubre el impacto de implementar tecnología solar o comprende el inmenso valor de reciclar correctamente tus desechos en casa.</p>
+        </div>
+    </header>
+
+    <main class="container my-5 pb-5">
+        
+        <!-- Tabs Nav -->
+        <ul class="nav nav-tabs border-secondary mb-4 justify-content-center animate__animated animate__fadeInUp" id="calcTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active fw-bold text-white px-4 py-3" id="solar-tab" data-bs-toggle="tab" data-bs-target="#solar-tab-pane" type="button" role="tab" aria-selected="true">
+                    <i class="bi bi-sun text-warning me-2"></i> Adopción Solar
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold text-white px-4 py-3" id="carbon-tab" data-bs-toggle="tab" data-bs-target="#carbon-tab-pane" type="button" role="tab" aria-selected="false">
+                    <i class="bi bi-car-front text-danger me-2"></i> Huella de Carbono
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold text-white px-4 py-3" id="recycle-tab" data-bs-toggle="tab" data-bs-target="#recycle-tab-pane" type="button" role="tab" aria-selected="false">
+                    <i class="bi bi-recycle text-success me-2"></i> Impacto Reciclaje
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold text-white px-4 py-3" id="ev-tab" data-bs-toggle="tab" data-bs-target="#ev-tab-pane" type="button" role="tab" aria-selected="false">
+                    <i class="bi bi-ev-station text-info me-2"></i> Vehículo Eléctrico
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold text-white px-4 py-3" id="eficiencia-tab" data-bs-toggle="tab" data-bs-target="#eficiencia-tab-pane" type="button" role="tab" aria-selected="false">
+                    <i class="bi bi-speedometer2 text-primary me-2"></i> Eficiencia Hogar
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold text-white px-4 py-3" id="industrial-tab" data-bs-toggle="tab" data-bs-target="#industrial-tab-pane" type="button" role="tab" aria-selected="false">
+                    <i class="bi bi-building text-warning me-2"></i> Industrial
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold text-white px-4 py-3" id="agua-tab" data-bs-toggle="tab" data-bs-target="#agua-tab-pane" type="button" role="tab" aria-selected="false">
+                    <i class="bi bi-droplet text-info me-2"></i> Huella Hídrica
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold text-white px-4 py-3" id="transporte-tab" data-bs-toggle="tab" data-bs-target="#transporte-tab-pane" type="button" role="tab" aria-selected="false">
+                    <i class="bi bi-truck text-success me-2"></i> Transporte Sostenible
+                </button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="calcTabsContent">
+            
+            <!-- TARJETA: ADOPCIÓN SOLAR -->
+            <div class="tab-pane fade show active" id="solar-tab-pane" role="tabpanel" tabindex="0">
+                <div class="row g-4 align-items-stretch">
+                    <!-- Solar Form -->
+                    <div class="col-lg-5 animate__animated animate__fadeInLeft">
+                        <div class="card card-premium h-100">
+                            <div class="card-header border-bottom border-secondary bg-transparent p-4">
+                                <h4 class="mb-0 text-white fw-bold"><i class="bi bi-lightning-charge text-warning"></i> Simulación Fotovoltaica</h4>
+                            </div>
+                            <div class="card-body p-4">
+                                <form id="formSolar">
+                                    <div class="mb-4">
+                                        <label class="form-label text-muted fw-bold">Consumo eléctrico mensual</label>
+                                        <div class="input-group input-group-lg border border-secondary rounded overflow-hidden">
+                                            <span class="input-group-text bg-dark border-0 text-muted">⚡</span>
+                                            <input type="number" class="form-control bg-dark border-0 text-white shadow-none" id="inputKwh" placeholder="Ej: 250" required min="1">
+                                            <span class="input-group-text bg-dark border-0 text-muted">kWh</span>
+                                        </div>
+                                        <div class="form-text text-muted small mt-2">Revisa tu última factura de luz.</div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary-green btn-lg w-100 mt-2">Calcular Instalación <i class="bi bi-arrow-right ms-2"></i></button>
+                                </form>
+                            </div>                        </div>
+                    </div>
+
+                    <!-- Solar Results -->
+                        <div class="col-lg-7 animate__animated animate__fadeInRight">
+                            <div class="card card-premium h-100">
+                                <div class="card-header border-bottom border-secondary bg-transparent p-4">
+                                    <h4 class="mb-0 text-white fw-bold"><i class="bi bi-graph-up-arrow text-warning"></i> Resultados de Instalación</h4>
+                                </div>
+                                <div class="card-body p-4">
+                                    <div id="solarVacio" class="text-center text-muted">
+                                        <i class="bi bi-sun display-1 opacity-25"></i>
+                                        <p class="mt-3">Ingresa tu dato de consumo y presiona Calcular.</p>
+                                    </div>
+                                    <div id="solarResultados" class="d-none">
+                                        <div class="row g-4">
+                                            <div class="col-md-6">
+                                                <div class="p-3 bg-dark-deep border border-secondary rounded">
+                                                    <p class="text-muted small fw-bold mb-1">PANELES NECESARIOS (400W)</p>
+                                                    <h3 class="fw-bold text-white mb-0" id="resPaneles">0 <span class="fs-6 text-muted">unidades</span></h3>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="p-3 bg-dark-deep border border-secondary rounded">
+                                                    <p class="text-muted small fw-bold mb-1">AHORRO CO₂ ANUAL</p>
+                                                    <h3 class="fw-bold text-white mb-0" id="resCo2Solar">0 <span class="fs-6 text-muted">kg CO₂</span></h3>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 mt-3">
+                                                <div class="d-flex align-items-center p-3 bg-success-soft rounded border border-success border-opacity-25">
+                                                    <i class="bi bi-tree text-success display-5 me-3"></i>
+                                                    <div>
+                                                        <h5 class="text-success fw-bold mb-1" id="resArbolesSolar">0 Árboles</h5>
+                                                        <p class="text-success text-opacity-75 small mb-0">Esta instalación esquivale al trabajo de absorción de carbón de este bosque artificial en 10 años.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA: HUELLA DE CARBONO (Transporte) -->
+            <div class="tab-pane fade" id="carbon-tab-pane" role="tabpanel" tabindex="0">
+                <div class="row g-4 align-items-stretch">
+                    <!-- Carbon Form -->
+                    <div class="col-lg-5">
+                        <div class="card card-premium h-100 border-danger border-opacity-25">
+                            <div class="card-header border-bottom border-secondary bg-transparent p-4">
+                                <h4 class="mb-0 text-white fw-bold"><i class="bi bi-droplet text-danger"></i> Transporte Vehicular</h4>
+                            </div>
+                            <div class="card-body p-4">
+                                <form id="formCarbono">
+                                    <div class="mb-4">
+                                        <label class="form-label text-muted fw-bold">Distancia promedio al mes en auto (gasolina)</label>
+                                        <div class="input-group input-group-lg border border-secondary rounded overflow-hidden">
+                                            <span class="input-group-text bg-dark border-0 text-muted"><i class="bi bi-car-front"></i></span>
+                                            <input type="number" class="form-control bg-dark border-0 text-white shadow-none" id="inputKm" placeholder="Ej: 1200" required min="1">
+                                            <span class="input-group-text bg-dark border-0 text-muted">km</span>
+                                        </div>
+                                        <div class="form-text text-muted small mt-2">Kilómetros recorridos habitualmente por mes.</div>
+                                    </div>
+                                    <button type="submit" class="btn btn-outline-danger btn-lg w-100 mt-2">Calcular Impacto <i class="bi bi-arrow-right ms-2"></i></button>
+                                </form>
+                            </div>                        </div>
+                    </div>
+
+                    <!-- Carbon Results -->
+                        <div class="col-lg-7">
+                            <div class="card card-premium h-100 border-danger">
+                                <div class="card-body p-4 p-lg-5 d-flex flex-column justify-content-center">
+                                    <div id="carbonVacio" class="text-center">
+                                        <i class="bi bi-car-front text-danger display-1 opacity-25"></i>
+                                        <p class="mt-3">Completa los datos para ver el impacto.</p>
+                                    </div>
+                                    <div id="carbonResultados" class="text-center d-none">
+                                        <h5 class="text-danger fw-bold mb-4">TU IMPACTO DE CARBONO</h5>
+                                        
+                                        <div class="row g-3 text-start">
+                                            <div class="col-md-6">
+                                                <div class="p-3 bg-dark-deep border border-secondary rounded border-danger border-opacity-50">
+                                                    <p class="text-danger small fw-bold mb-1">CO₂ GENERADO</p>
+                                                    <h3 class="fw-bold text-white mb-0 text-danger" id="resCo2Car">0 <span class="fs-6 text-muted">kg CO₂</span></h3>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="p-3 bg-dark-deep border border-secondary rounded border-warning border-opacity-50">
+                                                    <p class="text-warning small fw-bold mb-1">GASOLINA CONSUMIDA</p>
+                                                    <h3 class="fw-bold text-white mb-0 text-warning" id="resLitros">0 <span class="fs-6 text-muted">L</span></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <div class="d-flex align-items-center p-3 bg-danger-soft rounded border border-danger border-opacity-25">
+                                                <i class="bi bi-exclamation-triangle text-danger display-5 me-3"></i>
+                                                <div>
+                                                    <h5 class="text-danger fw-bold mb-1" id="resArbolesCar">0 Árboles</h5>
+                                                    <p class="text-danger text-opacity-75 small mb-0">Para compensar este impacto, necesitarías plantar este bosque artificial.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA: RECICLAJE (Basuras) -->
+            <div class="tab-pane fade" id="recycle-tab-pane" role="tabpanel" tabindex="0">
+                <div class="row g-4 align-items-stretch">
+                    <!-- Recycle Form -->
+                    <div class="col-lg-5">
+                        <div class="card card-premium h-100 border-success border-opacity-25">
+                            <div class="card-header border-bottom border-secondary bg-transparent p-4">
+                                <h4 class="mb-0 text-white fw-bold"><i class="bi bi-trash3 text-success"></i> Hábitos de Reciclaje</h4>
+                            </div>
+                            <div class="card-body p-4">
+                                <form id="formReciclaje">
+                                    <div class="mb-3">
+                                        <label class="form-label text-muted fw-bold">Papel y Cartón reciclado al mes</label>
+                                        <div class="input-group input-group-lg border border-secondary rounded overflow-hidden">
+                                            <span class="input-group-text bg-dark border-0 text-muted">📦</span>
+                                            <input type="number" class="form-control bg-dark border-0 text-white shadow-none" id="inputPaper" placeholder="Ej: 15" required min="0">
+                                            <span class="input-group-text bg-dark border-0 text-muted">kg</span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label text-muted fw-bold">Plástico reciclado al mes</label>
+                                        <div class="input-group input-group-lg border border-secondary rounded overflow-hidden">
+                                            <span class="input-group-text bg-dark border-0 text-muted">🥤</span>
+                                            <input type="number" class="form-control bg-dark border-0 text-white shadow-none" id="inputPlastic" placeholder="Ej: 5" required min="0">
+                                            <span class="input-group-text bg-dark border-0 text-muted">kg</span>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-outline-success btn-lg w-100 mt-2">Ver Impacto Positivo <i class="bi bi-check-circle ms-2"></i></button>
+                                </form>
+                            </div>                        </div>
+                    </div>
+
+                    <!-- Recycle Results -->
+                        <div class="col-lg-7">
+                            <div class="card card-premium h-100 border-success">
+                                <div class="card-body p-4 p-lg-5 d-flex flex-column justify-content-center">
+                                    <div id="recycleVacio" class="text-center py-4">
+                                        <i class="bi bi-trash3 text-success fs-1 mb-3"></i>
+                                        <p class="text-muted mb-3">Añade tus datos de reciclaje para ver el impacto.</p>
+                                    </div>
+                                    <div id="recycleResultados" class="text-center d-none">
+                                        <h5 class="text-success fw-bold mb-4">RECURSOS PRESERVADOS</h5>
+                                        
+                                        <div class="row g-3 text-start">
+                                            <div class="col-md-6">
+                                                <div class="p-3 bg-dark-deep border border-secondary rounded border-info border-opacity-50">
+                                                    <p class="text-info small fw-bold mb-1">AGUA AHORRADA</p>
+                                                    <h3 class="fw-bold text-white mb-0 text-info" id="resAgua">0 <span class="fs-6 text-muted">litros</span></h3>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="p-3 bg-dark-deep border border-secondary rounded border-warning border-opacity-50">
+                                                    <p class="text-warning small fw-bold mb-1">ENERGÍA CONSERVADA</p>
+                                                    <h3 class="fw-bold text-white mb-0 text-warning" id="resEnergia">0 <span class="fs-6 text-muted">kWh</span></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <div class="d-flex align-items-center p-3 bg-success-soft rounded border border-success border-opacity-25">
+                                                <i class="bi bi-box2-heart text-success display-5 me-3"></i>
+                                                <div>
+                                                    <h5 class="text-success fw-bold mb-1" id="resTala">0 árboles</h5>
+                                                    <p class="text-success text-opacity-75 small mb-0">Tu reciclaje preserva este ecosistema.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA: VEHÍCULO ELÉCTRICO -->
+            <div class="tab-pane fade" id="ev-tab-pane" role="tabpanel" tabindex="0">
+                <div class="row g-4 align-items-stretch">
+                    <!-- EV Form -->
+                    <div class="col-lg-5 animate__animated animate__fadeInLeft">
+                        <div class="card card-premium h-100">
+                            <div class="card-header border-bottom border-secondary bg-transparent p-4">
+                                <h4 class="mb-0 text-white fw-bold"><i class="bi bi-ev-station text-info fs-4"></i> Simulación Vehículo Eléctrico</h4>
+                            </div>
+                            <div class="card-body p-4">
+                                <form id="formEV">
+                                    <div class="mb-4">
+                                        <label class="form-label text-muted fw-bold">Tipo de Vehículo</label>
+                                        <select class="form-select form-select-lg" id="tipoEV">
+                                            <option value="sedan">🚗 Sedán</option>
+                                            <option value="suv">🚙 SUV</option>
+                                            <option value="compacto">🚗 Compacto</option>
+                                            <option value="pickup">🚐 Pickup Truck</option>
+                                            <option value="van">🚐 Van</option>
+                                        </select>
+                                        <small class="form-text text-muted small mt-1">Selecciona el tipo de vehículo a comparar</small>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label text-muted fw-bold">Distancia Anual (km)</label>
+                                        <div class="input-group input-group-lg border border-secondary rounded overflow-hidden">
+                                            <span class="input-group-text bg-dark border-0 text-muted"><i class="bi bi-speedometer2"></i></span>
+                                            <input type="number" class="form-control bg-dark border-0 text-white shadow-none" id="inputKmEV" placeholder="Ej: 15,000" required min="1">
+                                            <span class="input-group-text bg-dark border-0 text-muted">km/año</span>
+                                        </div>
+                                        <div class="form-text text-muted small mt-2">Promedio: 15,000 km/año</small>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label text-muted fw-bold">Eficiencia del Vehículo</label>
+                                        <select class="form-select form-select-lg" id="eficienciaEV">
+                                            <option value="gasolina">⛽️ Gasolina</option>
+                                            <option value="diesel">🛑️ Diésel</option>
+                                            <option value="hibrido">⚡️ Híbrido</option>
+                                            <option value="electrico">⚡️ Eléctrico</option>
+                                        </select>
+                                        <small class="form-text text-muted small mt-1">Mejor eficiencia: Eléctrico > híbrido > gasolina</small>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label text-muted fw-bold">Modelo Año</label>
+                                        <select class="form-select form-select-lg" id="modeloEV">
+                                            <option value="2024">2024</option>
+                                            <option value="2023">2023</option>
+                                            <option value="2022">2022</option>
+                                            <option value="2021">2021</option>
+                                            <option value="2020">2020</option>
+                                        </select>
+                                        <small class="form-text text-muted small mt-1">Modelos recientes tienen mejor eficiencia</small>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary-green btn-lg w-100 mt-2">Calcular Comparativa <i class="bi bi-arrow-right ms-2"></i></button>
+                                </form>
+                            </div>                        </div>
+                    </div>
+
+                    <!-- EV Results -->
+                        <div class="col-lg-7 animate__animated animate__fadeInRight">
+                            <div class="card card-premium h-100">
+                                <div class="card-header border-bottom border-secondary bg-transparent p-4">
+                                    <h4 class="mb-0 text-white fw-bold"><i class="bi bi-graph-up-arrow text-info fs-4"></i> Análisis Comparativo</h4>
+                                </div>
+                                <div class="card-body p-4">
+                                    <div id="evVacio" class="text-center py-4">
+                                        <i class="bi bi-car-front text-danger fs-1 mb-3"></i>
+                                        <p class="text-muted mb-3">Completa los datos para ver el análisis comparativo</p>
+                                    </div>
+                                    <div id="evResultados" class="d-none">
+                                        <div class="row g-4">
+                                            <div class="col-6 text-center">
+                                                <div class="display-6 text-danger fw-bold" id="evDato1">-70%</div>
+                                                <small class="text-muted">Mayor contaminación</small>
+                                            </div>
+                                            <div class="col-6 text-center">
+                                                <div class="display-6 text-primary fw-bold" id="evDato2">30%</div>
+                                                <small class="text-muted">Menor contaminación</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 text-center mt-4">
+                                            <div class="d-flex justify-content-center gap-2">
+                                                <div class="text-center">
+                                                    <div class="display-5 text-warning fw-bold" id="evDato3">$2,500</div>
+                                                    <small class="text-muted">Costo EV promedio</small>
+                                                </div>
+                                                <div class="text-center">
+                                                    <div class="display-5 text-success fw-bold" id="evDato4">$1,800</div>
+                                                    <small class="text-muted">Costo Gasolina promedio</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- TARJETA: EFICIENCIA HOGAR -->
+            <div class="tab-pane fade" id="eficiencia-tab-pane" role="tabpanel" tabindex="0">
+                <div class="row g-4 align-items-stretch">
+                    <!-- Eficiencia Form -->
+                    <div class="col-lg-5 animate__animated animate__fadeInLeft">
+                        <div class="card card-premium h-100">
+                            <div class="card-header border-bottom border-secondary bg-transparent p-4">
+                                <h4 class="mb-0 text-white fw-bold"><i class="bi bi-speedometer2 text-primary fs-4"></i> Eficiencia Energética Hogar</h4>
+                            </div>
+                            <div class="card-body p-4">
+                                <form id="formEficiencia">
+                                    <div class="mb-4">
+                                        <label class="form-label text-muted fw-bold">Área de la Vivienda (m²)</label>
+                                        <div class="input-group input-group-lg border border-secondary rounded overflow-hidden">
+                                            <span class="input-group-text bg-dark border-0 text-muted">🏠</span>
+                                            <input type="number" class="form-control bg-dark border-0 text-white shadow-none" id="inputArea" placeholder="Ej: 120" min="10">
+                                            <span class="input-group-text bg-dark border-0 text-muted">m²</span>
+                                        </div>
+                                        <div class="form-text text-muted small mt-2">Área promedio: 100-150m²</small>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label text-muted fw-bold">Personas en el Hogar</label>
+                                        <div class="input-group input-group-lg border-secondary rounded overflow-hidden">
+                                            <span class="input-group-text bg-dark border-0 text-muted">👥</span>
+                                            <input type="number" class="form-control bg-dark border-0 text-white shadow-none" id="personas" placeholder="Ej: 4" min="1">
+                                            <span class="input-group-text bg-dark border-0 text-muted">personas</span>
+                                        </div>
+                                        <div class="form-text text-muted small mt-2">Promedio: 3-4 personas por vivienda</small>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label text-muted fw-bold">Tipo de Vivienda</label>
+                                        <select class="form-select form-select-lg" id="tipoVivienda">
+                                            <option value="apartamento">🏠 Apartamento</option>
+                                            <option value="casa">🏠 Casa</option>
+                                            <option value="piso">🏠 Piso</option>
+                                            <option value="departamento">🏠 Departamento</option>
+                                        </select>
+                                        <small class="form-text text-muted mt-2">Selecciona el tipo de vivienda</small>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label text-muted fw-bold">Electrodomésticos</label>
+                                        <div class="row g-2">
+                                            <div class="col">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="aireAire" checked>
+                                                    <label class="form-check-label text-muted">Aire Acondicionado</label>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="calefaccion" checked>
+                                                    <label class="form-check-label text-muted">Calefacción</label>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="ventilacion" checked>
+                                                    <label class="form-check-label text-muted">Ventilación</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label text-muted fw-bold">Aislamiento</label>
+                                        <select class="form-select form-select-lg" id="aislamiento">
+                                            <option value="excelente">🏠 Excelente</option>
+                                            <option value="bueno">👍 Bueno</option>
+                                            <option value="regular">🔍 Regular</option>
+                                        </select>
+                                        <small class="form-text text-muted mt-2">Nivel de aislamiento</small>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary-green btn-lg w-100 mt-2">Calcular Eficiencia <i class="bi bi-arrow-right ms-2"></i></button>
+                                </form>
+                            </div>                        </div>
+                    </div>
+
+                    <!-- Eficiencia Results -->
+                        <div class="col-lg-7 animate__animated animate__fadeInRight">
+                            <div class="card card-premium h-100">
+                                <div class="card-header border-bottom border-secondary bg-transparent p-4">
+                                    <h4 class="mb-0 text-white fw-bold"><i class="bi bi-graph-up-arrow text-primary fs-4"></i> Análisis de Eficiencia</h4>
+                                </div>
+                                <div class="card-body p-4">
+                                    <div id="eficienciaVacio" class="text-center py-4">
+                                        <i class="bi bi-house text-success fs-1 mb-3"></i>
+                                        <p class="text-muted mb-3">Completa los datos para ver análisis de eficiencia</p>
+                                    </div>
+                                    <div id="eficienciaResultados" class="d-none">
+                                        <div class="row g-4">
+                                            <div class="col-md-6 text-center">
+                                                <div class="display-6 text-success fw-bold" id="efiDato1">30%</div>
+                                                <small class="text-muted">Ahorro potencial</small>
+                                            </div>
+                                            <div class="col-md-6 text-center">
+                                                <div class="display-6 text-warning fw-bold" id="efiDato2">25%</div>
+                                                <small class="text-muted">Mejora necesaria</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 text-center mt-4">
+                                            <div class="d-flex justify-content-center gap-3">
+                                                <div class="text-center">
+                                                    <div class="display-5 text-primary fw-bold" id="efiDato3">$500</div>
+                                                    <small class="text-muted">Ahorro anual</small>
+                                                </div>
+                                                <div class="text-center">
+                                                    <div class="display-5 text-success fw-bold" id="efiDato4">$300</div>
+                                                    <small class="text-muted">Ahorro anual</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA: INDUSTRIAL -->
+            <div class="tab-pane fade" id="industrial-tab-pane" role="tabpanel" tabindex="0">
+                <div class="row g-4 align-items-stretch">
+                    <!-- Industrial Form -->
+                    <div class="col-lg-5 animate__animated animate__fadeInLeft">
+                        <div class="card card-premium h-100">
+                            <div class="card-header border-bottom border-secondary bg-transparent p-4">
+                                <h4 class="mb-0 text-white fw-bold"><i class="bi bi-building text-warning fs-4"></i> Energía Industrial</h4>
+                            </div>
+                            <div class="card-body p-4">
+                                <form id="formIndustrial">
+                                    <div class="mb-4">
+                                        <label class="form-label text-muted fw-bold">Tipo de Industria</label>
+                                        <select class="form-select form-select-lg" id="tipoIndustria">
+                                            <option value="manufactura">🏭 Manufactura</option>
+                                            <option value="alimentos">🍽️ Alimentos y Bebidas</option>
+                                            <option value="textil">👕 Textil</option>
+                                            <option value="metalurgia">⚙️ Metalurgia</option>
+                                            <option value="quimica">🧪 Química</option>
+                                            <option value="tecnologia">💻 Tecnología</option>
+                                        </select>
+                                        <small class="form-text text-muted mt-2">Selecciona el sector industrial</small>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label text-muted fw-bold">Consumo Mensual (MWh)</label>
+                                        <div class="input-group input-group-lg border border-secondary rounded overflow-hidden">
+                                            <span class="input-group-text bg-dark border-0 text-muted">⚡</span>
+                                            <input type="number" class="form-control bg-dark border-0 text-white shadow-none" id="consumoIndustrial" placeholder="Ej: 500" min="1">
+                                            <span class="input-group-text bg-dark border-0 text-muted">MWh</span>
+                                        </div>
+                                        <div class="form-text text-muted small mt-2">Promedio: 100-1000 MWh/mes</small>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label text-muted fw-bold">Horas de Operación</label>
+                                        <div class="input-group input-group-lg border border-secondary rounded overflow-hidden">
+                                            <span class="input-group-text bg-dark border-0 text-muted">🕐</span>
+                                            <input type="number" class="form-control bg-dark border-0 text-white shadow-none" id="horasOperacion" placeholder="Ej: 8" min="1" max="24">
+                                            <span class="input-group-text bg-dark border-0 text-muted">horas/día</span>
+                                        </div>
+                                        <div class="form-text text-muted small mt-2">Promedio: 8-16 horas/día</small>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label text-muted fw-bold">Número de Empleados</label>
+                                        <div class="input-group input-group-lg border border-secondary rounded overflow-hidden">
+                                            <span class="input-group-text bg-dark border-0 text-muted">👥</span>
+                                            <input type="number" class="form-control bg-dark border-0 text-white shadow-none" id="empleados" placeholder="Ej: 50" min="1">
+                                            <span class="input-group-text bg-dark border-0 text-muted">empleados</span>
+                                        </div>
+                                        <div class="form-text text-muted small mt-2">Promedio: 10-500 empleados</small>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label text-muted fw-bold">Sistema Actual</label>
+                                        <select class="form-select form-select-lg" id="sistemaActual">
+                                            <option value="grid">🔌 Solo Red Eléctrica</option>
+                                            <option value="generador">⚡️ Generador Diésel</option>
+                                            <option value="mix">🔄 Mix Energético</option>
+                                            <option value="solar">☀️ Parcial Solar</option>
+                                        </select>
+                                        <small class="form-text text-muted mt-2">Sistema energético actual</small>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary-green btn-lg w-100 mt-2">Calcular Oportunidad <i class="bi bi-arrow-right ms-2"></i></button>
+                                </form>
+                            </div>                        </div>
+                    </div>
+
+                    <!-- Industrial Results -->
+                        <div class="col-lg-7 animate__animated animate__fadeInRight">
+                            <div class="card card-premium h-100">
+                                <div class="card-header border-bottom border-secondary bg-transparent p-4">
+                                    <h4 class="mb-0 text-white fw-bold"><i class="bi bi-graph-up-arrow text-warning fs-4"></i> Oportunidad Solar Industrial</h4>
+                                </div>
+                                <div class="card-body p-4">
+                                    <div id="industrialVacio" class="text-center py-4">
+                                        <i class="bi bi-building text-warning fs-1 mb-3"></i>
+                                        <p class="text-muted mb-3">Completa los datos para ver análisis industrial</p>
+                                    </div>
+                                    <div id="industrialResultados" class="d-none">
+                                        <div class="row g-4">
+                                            <div class="col-md-6 text-center">
+                                                <div class="display-6 text-success fw-bold" id="indDato1">70%</div>
+                                                <small class="text-muted">Ahorro energético</small>
+                                            </div>
+                                            <div class="col-md-6 text-center">
+                                                <div class="display-6 text-warning fw-bold" id="indDato2">5 años</div>
+                                                <small class="text-muted">Payback</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 text-center mt-4">
+                                            <div class="d-flex justify-content-center gap-3">
+                                                <div class="text-center">
+                                                    <div class="display-5 text-primary fw-bold" id="indDato3">2MWp</div>
+                                                    <small class="text-muted">Sistema recomendado</small>
+                                                </div>
+                                                <div class="text-center">
+                                                    <div class="display-5 text-success fw-bold" id="indDato4">$50K</div>
+                                                    <small class="text-muted">Ahorro anual</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA: HUELLA HÍDRICA -->
+            <div class="tab-pane fade" id="agua-tab-pane" role="tabpanel" tabindex="0">
+                <div class="row g-4 align-items-stretch">
+                    <!-- Agua Form -->
+                    <div class="col-lg-5 animate__animated animate__fadeInLeft">
+                        <div class="card card-premium h-100">
+                            <div class="card-header border-bottom border-secondary bg-transparent p-4">
+                                <h4 class="mb-0 text-white fw-bold"><i class="bi bi-droplet text-info fs-4"></i> Huella Hídrica</h4>
+                            </div>
+                            <div class="card-body p-4">
+                                <form id="formAgua">
+                                    <div class="mb-4">
+                                        <label class="form-label text-muted fw-bold">Consumo Diario Agua (litros)</label>
+                                        <div class="input-group input-group-lg border border-secondary rounded overflow-hidden">
+                                            <span class="input-group-text bg-dark border-0 text-muted">💧</span>
+                                            <input type="number" class="form-control bg-dark border-0 text-white shadow-none" id="consumoAgua" placeholder="Ej: 300" min="1">
+                                            <span class="input-group-text bg-dark border-0 text-muted">L/día</span>
+                                        </div>
+                                        <div class="form-text text-muted small mt-2">Promedio: 200-400 L/día por persona</small>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label text-muted fw-bold">Personas en Hogar</label>
+                                        <div class="input-group input-group-lg border border-secondary rounded overflow-hidden">
+                                            <span class="input-group-text bg-dark border-0 text-muted">👥</span>
+                                            <input type="number" class="form-control bg-dark border-0 text-white shadow-none" id="personasAgua" placeholder="Ej: 4" min="1">
+                                            <span class="input-group-text bg-dark border-0 text-muted">personas</span>
+                                        </div>
+                                        <div class="form-text text-muted small mt-2">Número de personas</small>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label text-muted fw-bold">Tipo de Dieta</label>
+                                        <select class="form-select form-select-lg" id="dietaAgua">
+                                            <option value="omnivoro">🍖️ Omnívoro</option>
+                                            <option value="vegetariano">🥗 Vegetariano</option>
+                                            <option value="vegano">🌱️ Vegano</option>
+                                            <option value="flexitariano">🥦️ Flexitariano</option>
+                                        </select>
+                                        <small class="form-text text-muted mt-2">La dieta afecta el consumo de agua virtual</small>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary-green btn-lg w-100 mt-2">Calcular Huella Hídrica <i class="bi bi-arrow-right ms-2"></i></button>
+                                </form>
+                            </div>                        </div>
+                    </div>
+
+                    <!-- Agua Results -->
+                        <div class="col-lg-7 animate__animated animate__fadeInRight">
+                            <div class="card card-premium h-100">
+                                <div class="card-header border-bottom border-secondary bg-transparent p-4">
+                                    <h4 class="mb-0 text-white fw-bold"><i class="bi bi-graph-up-arrow text-info fs-4"></i> Análisis de Consumo de Agua</h4>
+                                </div>
+                                <div class="card-body p-4">
+                                    <div id="aguaVacio" class="text-center py-4">
+                                        <i class="bi bi-droplet text-info fs-1 mb-3"></i>
+                                        <p class="text-muted mb-3">Completa los datos para ver análisis de agua</p>
+                                    </div>
+                                    <div id="aguaResultados" class="d-none">
+                                        <div class="row g-4">
+                                            <div class="col-md-6 text-center">
+                                                <div class="display-6 text-info fw-bold" id="aguaDato1">3,500</div>
+                                                <small class="text-muted">Litros/día total</small>
+                                            </div>
+                                            <div class="col-md-6 text-center">
+                                                <div class="display-6 text-warning fw-bold" id="aguaDato2">2,800</div>
+                                                <small class="text-muted">Agua virtual</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 text-center mt-4">
+                                            <div class="d-flex justify-content-center gap-3">
+                                                <div class="text-center">
+                                                    <div class="display-5 text-primary fw-bold" id="aguaDato3">700</div>
+                                                    <small class="text-muted">Directa</small>
+                                                </div>
+                                                <div class="text-center">
+                                                    <div class="display-5 text-success fw-bold" id="aguaDato4">2,100</div>
+                                                    <small class="text-muted">Virtual</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA: TRANSPORTE SOSTENIBLE -->
+            <div class="tab-pane fade" id="transporte-tab-pane" role="tabpanel" tabindex="0">
+                <div class="row g-4 align-items-stretch">
+                    <!-- Transporte Form -->
+                    <div class="col-lg-5 animate__animated animate__fadeInLeft">
+                        <div class="card card-premium h-100">
+                            <div class="card-header border-bottom border-secondary bg-transparent p-4">
+                                <h4 class="mb-0 text-white fw-bold"><i class="bi bi-truck text-success fs-4"></i> Transporte Sostenible</h4>
+                            </div>
+                            <div class="card-body p-4">
+                                <form id="formTransporte">
+                                    <div class="mb-4">
+                                        <label class="form-label text-muted fw-bold">Tipo de Transporte</label>
+                                        <select class="form-select form-select-lg" id="tipoTransporte">
+                                            <option value="publico">🚌 Transporte Público</option>
+                                            <option value="bicicleta">🚴 Bicicleta</option>
+                                            <option value="caminar">🚶 Caminar</option>
+                                            <option value="compartido">🚗 Carpooling</option>
+                                            <option value="electrico">⚡️ Eléctrico</option>
+                                        </select>
+                                        <small class="form-text text-muted mt-2">Selecciona el medio de transporte</small>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label text-muted fw-bold">Distancia Diaria (km)</label>
+                                        <div class="input-group input-group-lg border border-secondary rounded overflow-hidden">
+                                            <span class="input-group-text bg-dark border-0 text-muted">📍</span>
+                                            <input type="number" class="form-control bg-dark border-0 text-white shadow-none" id="distanciaTransporte" placeholder="Ej: 20" min="1">
+                                            <span class="input-group-text bg-dark border-0 text-muted">km/día</span>
+                                        </div>
+                                        <div class="form-text text-muted small mt-2">Distancia recorrida diariamente</small>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label text-muted fw-bold">Días por Semana</label>
+                                        <div class="input-group input-group-lg border border-secondary rounded overflow-hidden">
+                                            <span class="input-group-text bg-dark border-0 text-muted">📅</span>
+                                            <input type="number" class="form-control bg-dark border-0 text-white shadow-none" id="diasTransporte" placeholder="Ej: 5" min="1" max="7">
+                                            <span class="input-group-text bg-dark border-0 text-muted">días</span>
+                                        </div>
+                                        <div class="form-text text-muted small mt-2">Días que usas este transporte</small>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary-green btn-lg w-100 mt-2">Calcular Impacto <i class="bi bi-arrow-right ms-2"></i></button>
+                                </form>
+                            </div>                        </div>
+                    </div>
+
+                    <!-- Transporte Results -->
+                        <div class="col-lg-7 animate__animated animate__fadeInRight">
+                            <div class="card card-premium h-100">
+                                <div class="card-header border-bottom border-secondary bg-transparent p-4">
+                                    <h4 class="mb-0 text-white fw-bold"><i class="bi bi-graph-up-arrow text-success fs-4"></i> Análisis de Transporte</h4>
+                                </div>
+                                <div class="card-body p-4">
+                                    <div id="transporteVacio" class="text-center py-4">
+                                        <i class="bi bi-truck text-success fs-1 mb-3"></i>
+                                        <p class="text-muted mb-3">Completa los datos para ver análisis de transporte</p>
+                                    </div>
+                                    <div id="transporteResultados" class="d-none">
+                                        <div class="row g-4">
+                                            <div class="col-md-6 text-center">
+                                                <div class="display-6 text-success fw-bold" id="transDato1">-85%</div>
+                                                <small class="text-muted">Menor emisión CO₂</small>
+                                            </div>
+                                            <div class="col-md-6 text-center">
+                                                <div class="display-6 text-primary fw-bold" id="transDato2">-90%</div>
+                                                <small class="text-muted">Menor contaminación</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 text-center mt-4">
+                                            <div class="d-flex justify-content-center gap-3">
+                                                <div class="text-center">
+                                                    <div class="display-5 text-warning fw-bold" id="transDato3">$50</div>
+                                                    <small class="text-muted">Ahorro mensual</small>
+                                                </div>
+                                                <div class="text-center">
+                                                    <div class="display-5 text-success fw-bold" id="transDato4">2.5kg</div>
+                                                    <small class="text-muted">CO₂ evitado/semana</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </main>
+
+    <!-- Modern Footer -->
+    <footer class="footer-modern py-5 mt-5 border-top border-dark-subtle">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4">
+                    <h4 class="text-white fw-bold mb-3">Futuro <span class="text-primary-green">Solar</span></h4>
+                    <p class="text-muted small">Plataforma dedicada a la democratización de datos energéticos para un mañana sostenible en un entorno visual inmersivo.</p>
+                </div>
+                <div class="col-lg-2 offset-lg-1">
+                    <h6 class="text-white fw-bold mb-3">Secciones Rápidas</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="datos-energia.html">Datos de Energía</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="calculadora.html">Calculadora</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h6 class="text-white fw-bold mb-3">Conócenos</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="diccionario.html">Glosario</a></li>
+                        <li><a href="acerca-del-proyecto.html">Acerca del Proyecto</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="text-white fw-bold mb-3">Tecnología</h6>
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        <span class="badge bg-dark border border-secondary text-muted">Bootstrap 5.3</span>
+                        <span class="badge bg-dark border border-secondary text-muted">Chart.js</span>
+                    </div>
+                    <div class="social-icons d-flex gap-3">
+                        <a href="#" class="text-muted"><i class="bi bi-github fs-5"></i></a>
+                        <a href="#" class="text-muted"><i class="bi bi-linkedin fs-5"></i></a>
+                        <a href="#" class="text-muted"><i class="bi bi-twitter-x fs-5"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary opacity-25">
+            <div class="d-flex flex-wrap justify-content-between align-items-center py-3">
+                <p class="text-muted small mb-0">&copy; 2026 Futuro Solar. Proyecto educativo HexCode Team.</p>
+                <div class="text-muted small">
+                    <span class="badge bg-dark border border-secondary">v2.0 Dark</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Lógica de todas las calculadoras -->
+    <script src="js/calculadora.js"></script>
+    
+    <!-- Animaciones Base -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-up, .card, .input-group').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

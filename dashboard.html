@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard interactivo con gráficos de energías renovables">
+    <title>Dashboard Energético - Futuro Solar</title>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+        <!-- Modern Navigation -->
+    <nav class="navbar navbar-expand-lg border-bottom sticky-top custom-navbar">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-white" href="index.html">
+                Futuro <span class="text-primary-green">Solar</span>
+            </a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link " href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link " href="datos-energia.html">Datos de Energía</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link " href="calculadora.html">Calculadora</a></li>
+                    <li class="nav-item"><a class="nav-link " href="diccionario.html">Glosario</a></li>
+                    <li class="nav-item"><a class="nav-link " href="acerca-del-proyecto.html">Acerca del Proyecto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header text-center animate__animated animate__fadeIn">
+        <div class="container">
+            <h1 class="display-6 fw-bold mb-2 text-white">Energía que <span class="text-primary-green">Transforma</span></h1>
+            <p class="text-muted mx-auto" style="max-width: 700px;">Visualiza el pulso de la transición energética global. Datos reales sobre el consumo de renovables en más de 200 territorios para impulsar un futuro sostenible.</p>
+        </div>
+    </header>
+
+    <main class="dashboard container">
+
+        <!-- Info Header -->
+        <div class="d-flex flex-wrap justify-content-between align-items-end mb-4 animate__animated animate__fadeInUp">
+            <div>
+                <h2 class="h3 fw-bold mb-1">Panel de Control <span class="badge bg-primary-soft text-primary fs-6 fw-normal">Live</span></h2>
+                <p class="text-muted mb-0">Visualización detallada de la matriz energética.</p>
+            </div>
+            
+            <!-- Strategic Filters -->
+            <div class="filters-glass d-flex gap-3 p-2 rounded-4 shadow-sm">
+                <div class="filter-group">
+                    <label for="pais" class="small fw-bold text-muted d-block mb-1 ms-1">Territorio</label>
+                    <select id="pais" class="form-select border-0 bg-transparent fw-bold"></select>
+                </div>
+                <div class="vr"></div>
+                <div class="filter-group">
+                    <label for="anio" class="small fw-bold text-muted d-block mb-1 ms-1">Año</label>
+                    <select id="anio" class="form-select border-0 bg-transparent fw-bold"></select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Widgets de Resumen -->
+        <div class="resumen-widgets mb-5">
+            <div class="widget-premium animate__animated animate__zoomIn">
+                <div class="widget-icon bg-success-soft"><i class="bi bi-lightning-charge text-primary"></i></div>
+                <div class="widget-data">
+                    <span class="widget-label">Total Renovables</span>
+                    <span id="totalRenovable" class="widget-value">0.00 TWh</span>
+                </div>
+            </div>
+            <div class="widget-premium animate__animated animate__zoomIn animate__delay-1s">
+                <div class="widget-icon bg-primary-soft"><i class="bi bi-star text-success"></i></div>
+                <div class="widget-data">
+                    <span class="widget-label">Fuente Líder</span>
+                    <span id="fuentePrincipal" class="widget-value">-</span>
+                </div>
+            </div>
+            <div class="widget-premium animate__animated animate__zoomIn animate__delay-2s">
+                <div class="widget-icon bg-warning-soft"><i class="bi bi-calendar3"></i></div>
+                <div class="widget-data">
+                    <span class="widget-label">Periodo</span>
+                    <span id="anioDisplay" class="widget-value">-</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Insights Dinámicos -->
+        <div id="insightSection" class="alert bg-dark-deep border border-secondary shadow-sm rounded-4 p-4 mb-5 animate__animated animate__fadeIn">
+            <div class="d-flex align-items-center">
+                <div class="insight-icon me-3"><i class="bi bi-lightbulb text-warning fs-3"></i></div>
+                <div>
+                    <h5 class="fw-bold mb-1">Sabías que...</h5>
+                    <p id="insightText" class="text-muted mb-0 small">Selecciona un país para ver un dato curioso sobre su energía.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grid de gráficos -->
+        <div class="grid">
+            <div class="card card-premium">
+                <div class="card-header-premium">
+                    <i class="bi bi-bar-chart-fill me-2"></i> Distribución de Producción
+                </div>
+                <div class="chart-container">
+                    <canvas id="graficoBarras"></canvas>
+                </div>
+            </div>
+
+            <div class="card card-premium">
+                <div class="card-header-premium">
+                    <i class="bi bi-pie-chart-fill me-2"></i> Mix Energético (%)
+                </div>
+                <div class="chart-container">
+                    <canvas id="graficoTorta"></canvas>
+                </div>
+            </div>
+
+            <div class="card card-premium full">
+                <div class="card-header-premium">
+                    <i class="bi bi-graph-up-arrow me-2"></i> Histórico y Proyección Solar
+                </div>
+                <div class="chart-container">
+                    <canvas id="graficoLinea"></canvas>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+        <!-- Modern Footer -->
+    <footer class="footer-modern py-5 mt-5 border-top border-dark-subtle">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4">
+                    <h4 class="text-white fw-bold mb-3">Futuro <span class="text-primary-green">Solar</span></h4>
+                    <p class="text-muted small">Plataforma dedicada a la democratización de datos energéticos para un mañana sostenible en un entorno visual inmersivo.</p>
+                </div>
+                <div class="col-lg-2 offset-lg-1">
+                    <h6 class="text-white fw-bold mb-3">Secciones Rápidas</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="datos-energia.html">Datos de Energía</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="calculadora.html">Calculadora</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h6 class="text-white fw-bold mb-3">Conócenos</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="diccionario.html">Glosario</a></li>
+                        <li><a href="acerca-del-proyecto.html">Acerca del Proyecto</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="text-white fw-bold mb-3">Tecnología</h6>
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        <span class="badge bg-dark border border-secondary text-muted">Bootstrap 5.3</span>
+                        <span class="badge bg-dark border border-secondary text-muted">Chart.js</span>
+                    </div>
+                    <div class="social-icons d-flex gap-3">
+                        <a href="#" class="text-muted"><i class="bi bi-github fs-5"></i></a>
+                        <a href="#" class="text-muted"><i class="bi bi-linkedin fs-5"></i></a>
+                        <a href="#" class="text-muted"><i class="bi bi-twitter-x fs-5"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary opacity-25">
+            <div class="d-flex flex-wrap justify-content-between align-items-center py-3">
+                <p class="text-muted small mb-0">&copy; 2026 Futuro Solar. Proyecto educativo HexCode Team.</p>
+                <div class="text-muted small">
+                    <span class="badge bg-dark border border-secondary">v2.0 Dark</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/dashboard.js"></script>
+
+</body>
+</html>
